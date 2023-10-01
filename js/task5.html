@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task5 Js</title>
+</head>
+<body>
+    <h1>Basic Form Validation</h1>
+    <table>
+        <tr>
+            <td><label for="name">Name:</label></td>
+            <td><input type="text" id="name"><span style="color:red" id="namevalid"></span></td>
+        </tr>
+
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="email" id="email"><span style="color:red" id="emailvalid"></span></td>
+        </tr>
+
+        <tr>
+            <td><label for="website">Website:</label></td>
+            <td><input type="text" id="website"><span style="color:red" id="websitevalid"></span></td>
+        </tr>
+
+        <tr>
+            <td><label for="msg">Message:</label></td>
+            <td><textarea  id="msg" cols="30" rows="10"></textarea><span style="color:red" id="msgvalid"></span></td>
+        </tr>
+        
+        <tr>
+            <td></td>
+            <td><input type="submit" name="" id="submit" onclick="validate()"></td>
+        </tr>
+    </table>
+    <script>
+        function validate(){
+            var name=document.getElementById('name').value;
+            var email=document.getElementById('email').value;
+            var website=document.getElementById('website').value;
+            var Message=document.getElementById('msg').value;
+            if((name).trim()==='' || name.length<4){
+                document.getElementById('namevalid').innerText="This field is required";
+            }
+            if((email).trim()===''|| !email.endsWith('.com') || !email.includes('@')){
+                document.getElementById('emailvalid').innerText="A Valid email address is required";
+            }
+            if((website).trim()===''|| !website.includes('.')){
+                document.getElementById('websitevalid').innerText='A valid url is required';
+            }
+            if((Message).trim()===''){
+                document.getElementById('msgvalid').innerText='This field is required';
+            }
+        }
+    </script>
+</body>
+</html>
