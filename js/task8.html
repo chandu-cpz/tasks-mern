@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-8</title>
+    <style>
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        button {
+            background-color: red;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            font-family: 'Times New Roman';
+        }
+
+        body {
+            display: flex;
+            background: linear-gradient(to top, #ff99ff 0%, #ffff99 100%);
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <center style="color:blue;">
+            <h1>Registration form</h1>
+        </center>
+        <form action="https://www.ethnus.com" onsubmit="return validate()">
+            <table>
+                <tr>
+                    <th><label for="n1">First Name</label></th>
+                    <td><input type="text" name="n1" id="1" style="width:300px;" /></td>
+                    <td><span id="s1"></span></td>
+                </tr>
+                <tr>
+                    <th><label for="n2">Last Name</label></th>
+                    <td><input type="text" name="n2" id="2" style="width:300px;" /></td>
+                    <td><span id="s2"></span></td>
+                </tr>
+                <tr>
+                    <th><label for="mail">Email</label></th>
+                    <td><input type="email" name="mail" id="3" style="width:300px;" /></td>
+                    <td><span id="s3"></span></td>
+                </tr>
+                <tr>
+                    <th><label for="pass">Password</label></th>
+                    <td><input type="password" name="pass" id="4" style="width:300px;" /></td>
+                    <td><span id="s4"></span></td>
+                </tr>
+                <tr>
+                    <th><label for="repass">Re-enter Password</label></th>
+                    <td><input type="password" name="repass" id="5" style="width:300px;" /></td>
+                    <td><span id="s5"></span></td>
+                </tr>
+                <tr>
+                    <th rowspan="2"><label>Gender</label></th>
+                    <td><input type="radio" name="gender">Male</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="gender">Female</td>
+                </tr>
+                <tr>
+                    <th><label for="age">Age</label></th>
+                    <td><input type="text" name="age" id="6" style="width:300px;" /></td>
+                    <td><span id="s6"></span></td>
+                </tr>
+                <tr>
+                    <th><label for="phno">Phone Number</label></th>
+                    <td><input type="text" name="phno" id="7" style="width:300px;" /></td>
+                    <td><span id="s7"></span></td>
+                </tr>
+                <tr>
+                    <th><label for="address">Address</label></th>
+                    <td><textarea name="address" id="8" rows="5" cols="39"></textarea></td>
+                    <td><span id="s8"></span></td>
+                </tr>
+                <tr>
+                    <th><label for="state">State</label></th>
+                    <td><input type="text" name="state" id="9" style="width:300px;" /></td>
+                    <td><span id="s9"></span></td>
+                </tr>
+                <tr>
+                    <th><label>Country</label></th>
+                    <td>
+                        <select>
+                            <option>Choose your country</option>
+                            <option>India</option>
+                            <option>China</option>
+                            <option>US</option>
+                            <option>Russia</option>
+                            <option>France</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="lang">Languages known</label></th>
+                    <td>
+                        <input type="checkbox" name="lang" />English
+                        <input type="checkbox" name="lang" />Kannada
+                        <input type="checkbox" name="lang" />Hindi
+                        <input type="checkbox" name="lang" />Telugu
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" checked />Hereby I declare all the given details are true
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: end;">Log in to <a href="https://codemithra.com/">Ethnus</a>
+                        website
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <center><button type="submit">REGISTER</button></center>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        function validate() {
+            var a = document.getElementById("1");
+            var b = document.getElementById("2");
+            var c = document.getElementById("3");
+            var d = document.getElementById("4");
+            var e = document.getElementById("5");
+            var f = document.getElementById("6");
+            var g = document.getElementById("7");
+            var h = document.getElementById("8");
+            var i = document.getElementById("9");
+            var mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var name = /^[A-Za-zÀ-ÖØ-öø-ÿ-]+(?: [A-Za-zÀ-ÖØ-öø-ÿ-]+)*$/
+            var pwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            var age = /^\d{3}$/;
+            var phno = /^\d{10}$/;
+
+            document.getElementById("s1").innerHTML = "";
+            document.getElementById("s2").innerHTML = "";
+            document.getElementById("s3").innerHTML = "";
+            document.getElementById("s4").innerHTML = "";
+            document.getElementById("s5").innerHTML = "";
+            document.getElementById("s6").innerHTML = "";
+            document.getElementById("s7").innerHTML = "";
+            document.getElementById("s8").innerHTML = "";
+            document.getElementById("s9").innerHTML = "";
+
+            var isValid = true;
+
+            if (a.value.trim() === "" || !a.value.match(name)) {
+                isValid = false;
+                document.getElementById("s1").innerHTML = "POOR";
+            }
+
+            if (b.value.trim() === "" || !b.value.match(name)) {
+                isValid = false;
+                document.getElementById("s2").innerHTML = "POOR";
+            }
+
+            if (c.value.trim() === "" || !c.value.match(mail)) {
+                isValid = false;
+                document.getElementById("s3").innerHTML = "POOR";
+            }
+
+            if (!d.value.match(pwd)) {
+                isValid = false;
+                document.getElementById("s4").innerHTML = "POOR";
+            }
+
+            if (!e.value.match(pwd) || !e.value.match(d)) {
+                isValid = false;
+                document.getElementById("s5").innerHTML = "POOR OR MISMATCH";
+            }
+            if (!f.value.match(age)) {
+                isValid = false;
+                document.getElementById("s6").innerHTML = "POOR";
+            }
+
+            if (!g.value.match(phno)) {
+                isValid = false;
+                document.getElementById("s7").innerHTML = "POOR";
+            }
+            if (h.value.trim() === "") {
+                isValid = false;
+                document.getElementById("s8").innerHTML = "POOR";
+            }
+            if (!i.value.match(name)) {
+                isValid = false;
+                document.getElementById("s9").innerHTML = "POOR";
+            }
+            return isValid;
+        }
+    </script>
+</body>
+
+</html>
